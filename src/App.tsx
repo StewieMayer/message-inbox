@@ -1,12 +1,9 @@
-import Layout from "./components/Layout";
-import React from "react";
+import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 const App: React.FC = () => {
-  return (
-    <Layout headerContent={<></>}>
-      <></>
-    </Layout>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
