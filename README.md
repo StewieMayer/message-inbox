@@ -16,7 +16,7 @@ Aplicación de bandeja de entrada de mensajes construida con React, Redux Toolki
 ### Instalación
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/StewieMayer/message-inbox.git
 
 # Navigate to the project directory
 cd message-inbox
