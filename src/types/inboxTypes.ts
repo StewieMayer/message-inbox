@@ -12,6 +12,12 @@ export interface Thread {
   messages: Array<Message>;
 }
 
+export interface NewThread {
+  sender: string;
+  title: string;
+  message: Omit<Message, "id">;
+}
+
 export interface ThreadsParams {
   page?: number;
   limit?: number;

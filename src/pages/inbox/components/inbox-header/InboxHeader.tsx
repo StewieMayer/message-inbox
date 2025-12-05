@@ -1,8 +1,11 @@
 import Header from "../../../../components/Header";
+import MessageModal from "./components/message-modal/MessageModal";
 import SearchBar from "./components/search-bar/SearchBar";
 import { Mail } from "lucide-react";
+import { useInboxHeader } from "./hooks/useInboxHeader";
 
 const InboxHeader: React.FC = () => {
+  const { handleOpenModal } = useInboxHeader();
   return (
     <Header>
       <div className="flex justify-between items-center">
@@ -12,9 +15,13 @@ const InboxHeader: React.FC = () => {
         </div>
         <div className="flex gap-4">
           <SearchBar />
-          <button className="bg-white text-cyan-700 px-4 py-2 rounded hover:bg-gray-200 hover:cursor-pointer">
+          <button
+            className="bg-white text-cyan-700 px-4 py-2 rounded hover:bg-gray-200 hover:cursor-pointer"
+            onClick={handleOpenModal}
+          >
             New Message
           </button>
+          <MessageModal />
         </div>
       </div>
     </Header>
