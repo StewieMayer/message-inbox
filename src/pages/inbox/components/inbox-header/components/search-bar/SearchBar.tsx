@@ -14,7 +14,7 @@ const SearchBar: React.FC = () => {
         onChange={handleChange}
         className="w-full p-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-150"
       />
-      <Search className="absolute left-3 h-5 w-5 text-gray-400" />
+      <Search className="absolute left-3 h-5 w-5 text-gray-400" data-test-id='search-icon' />
     </div>
   );
 };
