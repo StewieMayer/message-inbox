@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import threadReducer from "./features/threadsSlice";
+import inboxReducer from "./features/inboxSlice";
 
 export const store = configureStore({
   reducer: {
-    threads: threadReducer,
+    inbox: inboxReducer,
   },
 });
 
