@@ -7,6 +7,10 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
     "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "@app/*": ["./src/app/*"],
+      "@hooks/*": ["./src/hooks/*"]
+    },
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "allowJs": true,

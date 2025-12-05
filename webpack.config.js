@@ -11,6 +11,10 @@ module.exports = {
     clean: true,
   },
   resolve: {
+    alias: {
+      "@/app": path.resolve(__dirname, "src/app/"),
+      "@/hooks": path.resolve(__dirname, "src/hooks/"),
+    },
     extensions: [".ts", ".tsx", ".js", ".json"],
   },
   module: {
