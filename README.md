@@ -54,6 +54,24 @@ BASE_URL=tu_url_de_api
 ```
 Asegúrate de reemplazar `tu_url_de_api` con la dirección de tu API.
 
+## Diseño
+
+La arquitectura de la aplicación sigue un enfoque modular y basado en componentes, aprovechando las capacidades de React para construir interfaces de usuario interactivas y reutilizables. A continuación, se detallan los principales patrones de diseño e implementación utilizados:
+
+### Patrones de Diseño Arquitectónico
+
+*   **Arquitectura Basada en Componentes**: La UI se descompone en componentes React encapsulados y reutilizables, facilitando la gestión y el mantenimiento de la interfaz.
+*   **Gestión de Estado Centralizada (Redux Toolkit)**: Se utiliza Redux Toolkit para una gestión predecible y escalable del estado global de la aplicación, implementando patrones como `Store`, `Slices` (que combinan `Actions` y `Reducers`), y `Selectors`.
+*   **Interacción con APIs (RTK Query)**: Integrado con Redux Toolkit, RTK Query gestiona las llamadas a la API de forma declarativa, proveyendo funcionalidades de caching, invalidación, y manejo de estados de carga/error, lo que simplifica enormemente la capa de acceso a datos.
+
+### Patrones de Implementación
+
+*   **Hooks de React**: Se hace uso extensivo de los Hooks de React, incluyendo hooks personalizados (e.g., `useAuth`, `useDebounce`, `useMessageModal`), para encapsular lógica con estado y reutilizarla entre componentes, promoviendo un código más limpio y modular.
+*   **Tipado Estático (TypeScript)**: El proyecto está construido con TypeScript para asegurar la robustez del código, la detección temprana de errores y una mejor experiencia de desarrollo a través de la autocompletado y la refactorización segura.
+*   **Estilización Utility-First (Tailwind CSS)**: La aplicación emplea Tailwind CSS, un framework CSS de primera utilidad, para construir interfaces directamente en el marcado con clases CSS predefinidas. Esto agiliza el proceso de estilización y garantiza la consistencia visual.
+*   **Rutas Protegidas (React Router)**: Se implementan rutas protegidas utilizando React Router para controlar el acceso a ciertas partes de la aplicación basándose en el estado de autenticación del usuario.
+*   **Formularios Controlados**: Los formularios son gestionados como componentes controlados por React, donde el estado del formulario se mantiene en el estado del componente y se actualiza a través de controladores de eventos.
+
 ## Razones Técnicas
 
 ### RTK (Redux Toolkit)
