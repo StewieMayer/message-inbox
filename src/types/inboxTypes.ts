@@ -24,3 +24,11 @@ export interface ResponseThreads {
   threadId: string;
   message: Omit<Message, "id">;
 }
+
+export interface Notification{
+  id: string;
+  type: string;
+  content: string;
+  date: string;
+}
+
