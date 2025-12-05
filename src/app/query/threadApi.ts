@@ -36,7 +36,7 @@ export const threadApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useGetThreadsQuery,
+  useLazyGetThreadsQuery,
   useGetThreadByIdQuery,
   useSetThreatMutation,
   useRespondToThreadMutation,

@@ -1,5 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { DefinePlugin } = require("webpack");
+
+require("dotenv").config({
+  path: path.resolve(__dirname, ".env"),
+});
 
 module.exports = {
   mode: "development",
@@ -11,6 +16,10 @@ module.exports = {
     clean: true,
   },
   resolve: {
+    alias: {
+      "@app": path.resolve(__dirname, "src/app"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+    },
     extensions: [".ts", ".tsx", ".js", ".json"],
   },
   module: {
@@ -29,6 +38,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new DefinePlugin({
+      "process.env": JSON.stringify(process.env),
     }),
   ],
   devServer: {
