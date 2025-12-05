@@ -1,8 +1,10 @@
+import { useAuth } from "@hooks/useAuth";
 import { Navigate, Outlet } from "react-router-dom";
-import { isLoggedIn } from "../utils/authController";
 
 const ProtectedRoute: React.FC = () => {
-  if (!isLoggedIn()) {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
     return <Navigate to="/" replace />;
   }
 
