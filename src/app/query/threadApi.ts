@@ -1,4 +1,9 @@
-import { ResponseThreads, Thread, ThreadsParams } from "../../types/inboxTypes";
+import {
+  NewThread,
+  ResponseThreads,
+  Thread,
+  ThreadsParams,
+} from "../../types/inboxTypes";
 import { baseApi } from "../baseApi";
 
 export const threadApi = baseApi.injectEndpoints({
@@ -18,11 +23,11 @@ export const threadApi = baseApi.injectEndpoints({
       }),
       transformResponse: (response: { data: Thread }) => response.data,
     }),
-    setThreat: builder.mutation<any, Omit<Thread, "id">>({
-      query: ({ messages, sender, title }) => ({
+    setThreat: builder.mutation<any, NewThread>({
+      query: (body) => ({
         url: "threads/",
         method: "POST",
-        body: { messages, sender, title },
+        body,
       }),
     }),
     respondToThread: builder.mutation<any, ResponseThreads>({
