@@ -9,12 +9,14 @@ export const threadApi = baseApi.injectEndpoints({
         params,
         method: "GET",
       }),
+      transformResponse: (response: { data: Array<Thread> }) => response.data,
     }),
     getThreadById: builder.query<Thread, string>({
       query: (threadId) => ({
         url: `threads/${threadId}`,
         method: "GET",
       }),
+      transformResponse: (response: { data: Thread }) => response.data,
     }),
     setThreat: builder.mutation<any, Omit<Thread, "id">>({
       query: ({ messages, sender, title }) => ({

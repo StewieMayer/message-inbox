@@ -8,6 +8,7 @@ export const notificationApi = baseApi.injectEndpoints({
         url: "notifications",
         method: "GET",
       }),
+      transformResponse: (response: { data: Array<Notification> }) => response.data,
     }),
   }),
 });
