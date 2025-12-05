@@ -1,5 +1,4 @@
 import InboxHeader from "./components/inbox-header/InboxHeader";
-import MessageModal from "./components/message-modal/MessageModal";
 import ThreadContainer from "./components/thread-container/ThreadContainer";
 import ThreadViewer from "./components/thread-viewer/ThreadViewer";
 
@@ -11,7 +10,6 @@ const InboxPage: React.FC = () => {
         <ThreadContainer />
         <ThreadViewer />
       </main>
-      <MessageModal />
     </div>
   );
 };
