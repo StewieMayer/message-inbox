@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 interface ThreadState {
   threads: Array<string>;
@@ -18,4 +19,5 @@ const threadSlice = createSlice({
 });
 
 export const { addThreads } = threadSlice.actions;
+export const selectThreadsState = (state: RootState) => state.threads;
 export default threadSlice.reducer;
