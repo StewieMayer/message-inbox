@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginSchema, LoginFormInputs } from "../schemes/loginSchema";
+import { useLoginMutation } from "@app/auth/authApi";
 
 export type FormErrors = {
   [key in keyof LoginFormInputs]?: string;
@@ -12,8 +13,8 @@ const useLoginForm = () => {
     email: "",
     password: "",
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [login, { isLoading,reset }] = useLoginMutation()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,12 +25,9 @@ const useLoginForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setIsLoading(true);
-
     const result = loginSchema.safeParse(formData);
 
     if (!result.success) {
-      setIsLoading(false);
       const newErrors: FormErrors = {};
       result.error.issues.forEach((issue) => {
         const path = issue.path[0] as keyof LoginFormInputs;
@@ -39,11 +37,12 @@ const useLoginForm = () => {
       return setErrors(newErrors);
     }
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setErrors({});
+    login(formData).unwrap().then((response)=>{
+      localStorage.setItem("t", response.t);
+      localStorage.setItem("rt", response.rt);
+      reset();
       navigate("app/inbox");
-    }, 5000);
+    })
   };
 
   return {
